@@ -1,0 +1,29 @@
+SELECT 
+"Game"."id", 
+"Game"."username", 
+"Game"."password", 
+"Game"."createdAt", 
+"Game"."updatedAt", 
+
+"Biodatum"."id" AS "Biodatum.id", 
+"Biodatum"."fullname" AS "Biodatum.fullname", 
+"Biodatum"."age" AS "Biodatum.age", 
+"Biodatum"."game_id" AS "Biodatum.game_id", 
+"Biodatum"."createdAt" AS "Biodatum.createdAt", 
+"Biodatum"."updatedAt" AS "Biodatum.updatedAt", 
+
+"Histories"."id" AS "Histories.id", 
+"Histories"."playedAt" AS "Histories.playedAt", 
+"Histories"."score" AS "Histories.score", 
+"Histories"."GameId" AS "Histories.GameId", 
+"Histories"."createdAt" AS "Histories.createdAt", 
+"Histories"."updatedAt" AS "Histories.updatedAt" 
+
+FROM "Games" AS "Game" 
+LEFT OUTER JOIN "Biodata" AS "Biodatum" 
+ON 
+"Game"."id" = "Biodatum"."game_id" 
+
+LEFT OUTER JOIN "Histories" AS "Histories" 
+ON 
+"Game"."id" = "Histories"."GameId";
